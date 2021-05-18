@@ -1,0 +1,45 @@
+{
+  "name": "Fiverr/Upwork analyzer",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "this is an extension to analyze fiverr buyer request and upwork",
+  "homepage_url": "https://github.com/aniekutmfongodwin",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "tabs",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.fiverr.com/*",
+        "https://fiverr.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
